@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Pokemon</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Primary Type</th>
+            <th>Secondary Type</th>
+            <th></th>
+        </tr>
+        {% for pokemon in pokemonList %}
+        <tr>
+            <td>{{ pokemon.name }}</td>
+            <td>{{ pokemon.primary_type }}</td>
+            <td>{{ pokemon.secondary_type }}</td>
+            <td>
+                <a href="{{url}}/delete/{{pokemon.id}}">Delete</a>
+                <br>
+                <a href="{{url}}/update/{{pokemon.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action={{url}} method="POST">
+        Name:
+        <input type="text" name="name" id="pokemonName">
+        <br>
+        Primary Type:
+        <input type="text" name="primary" id="primaryType">
+        <br>
+        Secondary Type:
+        <input type="text" name="secondary" id="secondaryType">
+        <br>
+        <input type="submit" value="Add Pokemon">
+    </form>
+</div>
+{% endblock %}

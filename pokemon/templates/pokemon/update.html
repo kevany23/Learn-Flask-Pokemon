@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update Pokemon</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align:center">Update Pokemon</h1>
+
+
+    <form action="/pokemon/update/{{pokemon.id}}" method="POST">
+        Name:
+        <input type="text" name="name" id="pokemonName" value={{pokemon.name}}>
+        <br>
+        Primary Type:
+        <input type="text" name="primary" id="primaryType" value={{pokemon.primary_type}}>
+        <br>
+        Secondary Type:
+        <input type="text" name="secondary" id="secondaryType" value={{pokemon.secondary_type}}>
+        <br>
+        <input type="submit" value="Add Pokemon">
+    </form>
+</div>
+{% endblock %}
